@@ -153,7 +153,7 @@ void sortFile(ifstream &ReadFile, stack<int> *myStack, queue<int> *myQueue)
 			ReadFile.clear(); 
 			ReadFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-			cout << "Irrelevant information discarded. " << endl;  //Lets the user know that irrelevant information was found and ignored
+			cout << "Irrelevant information discarded.(Not in our needed range) " << endl;  //Lets the user know that irrelevant information was found and ignored
 		}
 	}
 }
