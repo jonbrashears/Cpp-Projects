@@ -1,7 +1,5 @@
-#include <iostream>
 #include "items.h"
 
-using namespace std;
 template <class T>
 Items<T>::Items()
 {
@@ -16,20 +14,27 @@ Items<T>::Items()
 template <class T>
 void Items<T>::add(T value)
 {
-    T *newArray; //new array of pointers
+    T* newArray;                                        //new array of pointers
     if (nextIndex == arraySize)
     {
-        arraySize = arraySize + 1; //updates array size if there is another value
-        newArray = new T[arraySize]; //creates a new array with the updated size
+        arraySize = arraySize + 1;                      // updates array size if there is another value
+        newArray = new T[arraySize];                    // creates a new array with the updated size
         for (int i = 0; i < nextIndex; i++)
-            newArray[i] = myArray[i]; //copies the values of the old array to the newly created one
+            newArray[i] = myArray[i];                   // copies the values of the old array to the newly created one
         for (int j = nextIndex; j < arraySize; j++)
-            newArray[j] = 0;  //newArray holds a zero in the new spot to update the size of the original array
-        delete [] myArray; //deletes original array
-        myArray = newArray; //copies values of newArray to the original array
+            newArray[j] = 0;                            // newArray holds a zero in the new spot to update the size of the original array
+        delete[] myArray;                               // deletes original array
+        myArray = newArray;                             // copies values of newArray to the original array
     }
-    myArray[nextIndex++] = value;
+    myArray[nextIndex] = value;
     cout << value << endl << myArray[nextIndex] << endl;
+
+    for (int i = 0; i < arraySize; i++)
+    {
+        cout << "Array is " << myArray[i] << endl;
+    }
+
+    nextIndex++;
     selectionSort();
 }
 
@@ -38,20 +43,20 @@ template <class T>
 void Items<T>::remove(int index)
 {
     //starts at the user given element and moves each element back one spot in the array
-    for(int i = index; i < arraySize; i++)
+    for (int i = index; i < arraySize; i++)
     {
-        myArray[i] = myArray[i+1];
+        myArray[i] = myArray[i + 1];
     }
-    arraySize = arraySize-1; //updates the array size
-    T *newArray; //new array to hold values while updating size
+    arraySize = arraySize - 1;              //updates the array size
+    T* newArray;                            // new array to hold values while updating size
     newArray = new T[arraySize];
-    //Sets the new array to the values of the original array
-    for (int i = 0; i < arraySize; i++)
+    
+    for (int i = 0; i < arraySize; i++)     //Sets the new array to the values of the original array
     {
         newArray[i] = myArray[i];
     }
-    delete [] myArray;  //deletes original array
-    myArray = newArray; //original array of updated size copies values from new array
+    delete[] myArray;                       //deletes original array
+    myArray = newArray;                     //original array of updated size copies values from new array
 }
 
 
@@ -60,11 +65,11 @@ template <class T>
 void Items<T>::print()
 {
     cout << endl;
-    for (int i = 0; i < (arraySize-1); i++)
+    for (int i = 0; i < (arraySize - 1); i++)
     {
         cout << myArray[i] << ", ";
     }
-    cout << myArray[arraySize-1];  //doesn't print comma for last value
+    cout << myArray[arraySize - 1];  //doesn't print comma for last value
 }
 
 //returns value at user given index
@@ -81,7 +86,7 @@ T Items<T>::sum()
     T sum = 0;
     for (int i = 0; i < arraySize; i++)
     {
-        sum+=myArray[i];
+        sum += myArray[i];
     }
     return sum;
 }
@@ -98,18 +103,18 @@ template <class T>
 void Items<T>::selectionSort()
 {
     int minIndex;
-    T *temp;
+    T* temp = nullptr;
     for (int i = 0; i < arraySize - 1; i++) {
-            minIndex = i;
-            for (int j = i + 1; j < arraySize; j++)
-                  if (myArray[j] < myArray[minIndex])
-                        minIndex = j;
-            if (minIndex != i) {
-                  *temp = myArray[i];
-                  myArray[i] = myArray[minIndex];
-                  myArray[minIndex] = *temp;
-            }
-      }
+        minIndex = i;
+        for (int j = i + 1; j < arraySize; j++)
+            if (myArray[j] < myArray[minIndex])
+                minIndex = j;
+        if (minIndex != i) {
+            *temp = myArray[i];
+            myArray[i] = myArray[minIndex];
+            myArray[minIndex] = *temp;
+        }
+    }
 }
 
 
