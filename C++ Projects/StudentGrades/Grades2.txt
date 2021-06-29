@@ -1,4 +1,0 @@
-Jonathan 100
-Dan 30
-Martha 45
-Virginia 95

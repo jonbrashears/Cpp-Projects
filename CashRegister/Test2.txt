@@ -1,0 +1,5 @@
+R	300
+T	Clothing	15.00	0
+T	Tent	300.00	0
+T	Burner	68.95	0
+T	Stove	465.00	7

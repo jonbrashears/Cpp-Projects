@@ -1,6 +1,0 @@
-R	100
-T	Fish	7.99	0
-T	Shark	32.99	0
-T	Shrimp	6.99	0
-T	Tuna	5.88	8
-T	Fish	9.99	0

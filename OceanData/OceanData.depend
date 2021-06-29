@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1486730077 source:c:\users\jonathan\documents\c++\read from file\oceandata\main.cpp
+	<ctime>
+	<iostream>
+	<fstream>
+	<limits>
+	<cstdlib>
+	<string>
+

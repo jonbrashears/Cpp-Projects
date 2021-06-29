@@ -1,6 +1,0 @@
-R	200
-T	Gym	52.55	0
-T	Gloves	23.56	6
-T	Shoes	123.99	0
-T	Cape	26.32	4
-T	Mask	22.99	0
